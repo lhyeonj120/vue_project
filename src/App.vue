@@ -17,19 +17,19 @@
                   </div>
                   <div class="shoping_bag"><img src="@/assets/images/search-icon.png"></div>
                 </div> 
-                <div id="myNav" class="overlay">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <div class="overlay-content">
-                  <a href="index.html">Home</a>
-                  <a href="services.html">Services</a>
-                  <a href="about.html">About</a>
-                  <a href="choose.html">Choose</a>
-                  <a href="team.html">Team</a>
-                  <a href="contact.html">Contact Us</a>
-                </div>
+                <div id="myNav" class="overlay" >
+                  <a href="javascript:void(0)" class="closebtn" @click="closeNav">&times;</a>
+                  <div class="overlay-content">
+                    <a href="index.html">Home</a>
+                    <a href="services.html">Services</a>
+                    <a href="about.html">About</a>
+                    <a href="choose.html">Choose</a>
+                    <a href="team.html">Team</a>
+                    <a href="contact.html">Contact Us</a>
+                  </div>
                 </div>
                 <span class="navbar-toggler-icon"></span>
-                <span onclick="openNav()"><img src="@/assets/images/toggle-icon.png" class="toggle_menu"></span>
+                <span @click="openNav"><img src="@/assets/images/toggle-icon.png" class="toggle_menu"></span>
               </ul>
             </div>      
           </div>
@@ -227,8 +227,25 @@
 </template>
 
 <script>
+import {ref} from 'vue';
 
 export default {
+  setup(){
+    let overlay = null;
+
+    const openNav = () => {
+      overlay = document.getElementsByClassName('overlay')[0];
+      overlay.style.width = "100%";
+    }
+    const closeNav = () => {
+      overlay.style.width = "0%";
+    }
+
+    return{
+      openNav,
+      closeNav,
+    }
+  }
 
 }
 </script>
@@ -241,4 +258,5 @@ export default {
 @import "@/assets/css/owl.carousel.min.css";
 @import url("https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css");
+
 </style>
