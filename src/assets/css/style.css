@@ -265,7 +265,7 @@ button {
     display: block;
     transition: 0.3s;
 }
-.overlay .menuBtn {
+.overlay .navBtn {
     padding: 0px;
     text-decoration: none;
     font-size: 22px;
